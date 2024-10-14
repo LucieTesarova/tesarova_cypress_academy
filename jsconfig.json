@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "es2020", //nastaveni verze js
+    "module": "es2020", //dovoleni vytvaret tridy a objekty abychom nemusely vytvaret mjs
+    "esModuleInterop": true, //dovoleni vytvaret tridy a objekty abychom nemusely vytvaret mjs
+    "types": ["cypress"] //zpristupni vsechny cypress funkce
+  },
+  "exclude": ["node_modules"] //kdykoli kontrolujes kod, kontroluj to vsude krome node_modules...muze to zpomalit cypress..tisice souboru
+}
