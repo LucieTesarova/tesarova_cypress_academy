@@ -1,7 +1,7 @@
 export class LoginPage {
   constructor() {
     this.url = "https://tredgate.com/pmtool";
-    this.usernameInput = "#username";
+    this.usernameInput = "#username"; // ! zde nesmí být cy.get!!
     this.passwordInput = "#password";
     this.loginButton = ".btn";
   }
@@ -10,7 +10,6 @@ export class LoginPage {
     cy.visit(this.url);
   }
 
-  // kazdy zvlast, pokud jeto test ktery testuje primo logn
   typeUsername(username) {
     cy.get(this.usernameInput).type(username);
   }
@@ -19,11 +18,10 @@ export class LoginPage {
     cy.get(this.passwordInput).type(password);
   }
 
-  clickLoginBtn() {
+  clickLogin() {
     cy.get(this.loginButton).click();
   }
 
-  //testy muzeme zdruzit pokud to pouzivame jako preconditions
   login(username, password) {
     this.typeUsername(username);
     this.typePassword(password);
