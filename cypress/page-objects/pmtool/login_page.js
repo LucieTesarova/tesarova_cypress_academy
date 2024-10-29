@@ -1,4 +1,5 @@
 import { DashboardPage } from "./dashboard_page";
+import { LostPasswordPage } from "./lost_password_page";
 
 export class LoginPage {
   constructor() {
@@ -6,6 +7,7 @@ export class LoginPage {
     this.usernameInput = "#username"; // ! zde nesmí být cy.get!!
     this.passwordInput = "#password";
     this.loginButton = ".btn";
+    this.passwordForgottenButoon = "#forget_password";
   }
 
   openPmtool() {
@@ -33,5 +35,10 @@ export class LoginPage {
     this.typePassword(password);
     this.clickLogin();
     return new DashboardPage();
+  }
+
+  clickPasswordForgotten() {
+    cy.get(this.passwordForgottenButoon).click();
+    return new LostPasswordPage();
   }
 }
