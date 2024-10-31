@@ -1,4 +1,5 @@
 import { DashboardPage } from "./dashboard_page";
+import { LostPasswordPage } from "./lost_password_page";
 
 export class LoginPage {
   constructor() {
@@ -6,6 +7,7 @@ export class LoginPage {
     this.usernameInput = "#username"; // ! zde nesmí být cy.get!!
     this.passwordInput = "#password";
     this.loginButton = ".btn";
+    this.passwordForgottenButoon = "#forget_password";
     this.pageHeader = "h3.form-title";
   }
 
@@ -36,6 +38,11 @@ export class LoginPage {
     return new DashboardPage();
   }
 
+  clickPasswordForgotten() {
+    cy.get(this.passwordForgottenButoon).click();
+    return new LostPasswordPage();
+  }
+  
   pageHeaderHaveText(headerText) {
     cy.get(this.pageHeader).should("have.text", headerText);
     return this;
