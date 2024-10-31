@@ -7,8 +7,10 @@ export class LoginPage {
     this.usernameInput = "#username"; // ! zde nesmí být cy.get!!
     this.passwordInput = "#password";
     this.loginButton = ".btn";
-    this.passwordForgottenButoon = "#forget_password";
+    this.passwordForgottenButton = "#forget_password";
     this.pageHeader = "h3.form-title";
+    this.rememberMe = ".checkbox";
+    this.logo = "img[title='TEG Project Management']";
   }
 
   openPmtool() {
@@ -39,12 +41,44 @@ export class LoginPage {
   }
 
   clickPasswordForgotten() {
-    cy.get(this.passwordForgottenButoon).click();
+    cy.get(this.passwordForgottenButton).click();
     return new LostPasswordPage();
   }
-  
+
   pageHeaderHaveText(headerText) {
     cy.get(this.pageHeader).should("have.text", headerText);
     return this;
+  }
+
+  usernameHaveValue(usernamePlaceholder) {
+    cy.get(this.usernameInput).should("have.value", usernamePlaceholder);
+    return this;
+  }
+
+  passwordHaveValue(passwordPlaceholder) {
+    cy.get(this.passwordInput).should("have.value", passwordPlaceholder);
+    return this;
+  }
+
+  rememberMeHaveText(rememberMeText) {
+    cy.get(this.rememberMe).should("contain.text", rememberMeText);
+    return this;
+  }
+
+  loginButtonHaveText(loginButtonText) {
+    cy.get(this.loginButton).should("have.text", loginButtonText);
+    return this;
+  }
+
+  passwordForgottenHaveText(passwordForgottenText) {
+    cy.get(this.passwordForgottenButton).should(
+      "have.text",
+      passwordForgottenText
+    );
+    return this;
+  }
+
+  logoIsVisible() {
+    cy.get(this.logo).should("be.visible");
   }
 }
