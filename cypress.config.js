@@ -7,5 +7,7 @@ module.exports = defineConfig({
     },
     watchForFileChanges: false,
     defaultCommandTimeout: 10000,
+    // video: true, // nastavení videa
+    // videoCompression: true, // zmenšení velikosti videa
   },
 });
