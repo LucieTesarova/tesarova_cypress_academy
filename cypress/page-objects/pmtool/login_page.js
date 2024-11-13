@@ -11,6 +11,9 @@ export class LoginPage {
     this.pageHeader = "h3.form-title";
     this.rememberMe = ".checkbox";
     this.logo = "img[title='TEG Project Management']";
+    this.usernameErrorLabel = "#username-error";
+    this.passwordErrorLabel = "#password-error";
+    this.logoImg = ".login-page-logo img";
   }
 
   openPmtool() {
