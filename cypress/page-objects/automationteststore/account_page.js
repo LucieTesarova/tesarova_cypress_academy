@@ -1,3 +1,5 @@
+import { CreateAccountPage } from "./create_account_page";
+
 export class AccountPage {
   constructor() {
     this.continueButton = "form[id='accountFrm'] button[title='Continue']";
@@ -5,6 +7,6 @@ export class AccountPage {
 
   clickContinueButton() {
     cy.get(this.continueButton).click();
-    // return new CreateAccountPage();
+    return new CreateAccountPage();
   }
 }
