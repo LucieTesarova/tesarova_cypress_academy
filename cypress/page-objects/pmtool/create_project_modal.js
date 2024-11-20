@@ -1,7 +1,9 @@
 import { TasksPage } from "./projects/tasks_page";
+import { BasePage } from "./common/base_page.js";
 
-export class CreateProjectModal {
+export class CreateProjectModal extends BasePage {
   constructor() {
+    super("module=items/form&path=21");
     this.prioritySelect = 'div[data-testid="Priority"] select';
     this.statusSelect = 'div[data-testid="Status"] select';
     this.nameInput = 'div[data-testid="Name"] input';
