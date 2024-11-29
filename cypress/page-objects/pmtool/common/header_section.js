@@ -1,5 +1,6 @@
 import { LoginPage } from "../login_page";
 import { MenuSection } from "./menu_section";
+import { customElement } from "../../../helpers/custom_element.js";
 
 export class HeaderSection extends MenuSection {
   constructor(path) {
@@ -7,6 +8,7 @@ export class HeaderSection extends MenuSection {
     super(path);
     this.profileDropdown = "#user_dropdown";
     this.logoutButton = "#logout";
+    this.userNameSpan = customElement(".username");
   }
 
   clickProfile() {
@@ -17,5 +19,11 @@ export class HeaderSection extends MenuSection {
   clickLogout() {
     cy.get(this.logoutButton).click();
     return new LoginPage();
+  }
+
+  userNameHaveText(firstName, lastName) {
+    const fullName = `${firstName} ${lastName}`;
+    this.userNameSpan.containText(fullName);
+    return this;
   }
 }
