@@ -1,6 +1,6 @@
 import { realHover } from "../../../../node_modules/cypress-real-events/commands/realHover";
 
-describe("Mouse Actions Tests", () => {
+describe("Mouse Actions Tests", { tags: "@smoke" }, () => {
   it("Scroll Into View", () => {
     cy.visit("https://tredgate.com/webtrain");
     cy.get("h1").scrollIntoView().should("be.visible");
