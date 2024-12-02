@@ -11,7 +11,7 @@ describe("Login and Logout Tests", () => {
     loginPage.clickLogin();
   });
 
-  it("Pmtool Login and Logout test", () => {
+  it("Pmtool Login and Logout test", { tags: "@e2e" }, () => {
     const loginPage = new LoginPage();
     const dashboardPage = new DashboardPage();
     loginPage.openPmtool();
